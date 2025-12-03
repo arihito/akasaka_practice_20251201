@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Demo styles -->
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #000;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #fff;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper {
+      width: 80vw;
+      height: 80vw;
+    }
+
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+      box-shadow: 0 1px 3px gray;
+      border: 10px solid white;
+      background: linear-gradient(gray, lightgray);
+    }
+/* 
+    .swiper-slide:nth-child(1n) {
+      background-color: rgb(255, 255, 255);
+    }
+
+    .swiper-slide:nth-child(2n) {
+      background-color: rgb(255, 255, 255);
+    }
+
+    .swiper-slide:nth-child(3n) {
+      background-color: rgb(255, 255, 255);
+    }
+
+    .swiper-slide:nth-child(4n) {
+      background-color: rgb(255, 255, 255);
+    }
+
+    .swiper-slide:nth-child(5n) {
+      background-color: rgb(255, 255, 255);
+    }
+
+    .swiper-slide:nth-child(6n) {
+      background-color: rgb(255, 255, 255);
+    }
+
+    .swiper-slide:nth-child(7n) {
+      background-color: rgb(255, 255, 255);
+    }
+
+    .swiper-slide:nth-child(8n) {
+      background-color: rgb(255, 255, 255);
+    }
+
+    .swiper-slide:nth-child(9n) {
+      background-color: rgb(255, 255, 255);
+    }
+
+    .swiper-slide:nth-child(10n) {
+      background-color: rgb(255, 255, 255);
+    } */
+  </style>
+</head>
+
+<body>
+  <!-- Swiper -->
+
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><button class="button">購入する</button></div>
+      <div class="swiper-slide"><button class="button">購入する</button></div>
+      <div class="swiper-slide"><button class="button">購入する</button></div>
+      <div class="swiper-slide"><button class="button">購入する</button></div>
+      <div class="swiper-slide"><button class="button">購入する</button></div>
+      <div class="swiper-slide"><button class="button">購入する</button></div>
+      <div class="swiper-slide"><button class="button">購入する</button></div>
+      <div class="swiper-slide"><button class="button">購入する</button></div>
+      <div class="swiper-slide"><button class="button">購入する</button></div>
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      effect: "cards",
+      grabCursor: true,
+    });
+  </script>
+</body>
+
+</html>

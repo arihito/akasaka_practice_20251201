@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.rgb {
+    color: rgb(255, 0, 0);
+}
+
+.code {
+    color: #ff0000;
+}
+
+.name {
+    color: red;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .popver {
+        padding: 20px;
+        margin: 20px;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 60%);
+        border: 1px solid white;
+        border-radius: 3px;
+        animation: popv 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+      }
+      @keyframes popv {
+        0% {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>大見出し</h1>
+    <h2>中見出し</h2>
+    <h3>小見出し</h3>
+    <h4>小見出し</h4>
+    <h5>極小見出し</h5>
+    <h6>極小見出し</h6>
+    <p>pタグの役割</p>
+    <p>
+      pタグを使用すると自動的に前後で改行されます。これは、pタグがブロック要素のためです。
+    </p>
+    <p>brタグを使用すると<br />強制的に改行されます。</p>
+    <button popovertarget="menu" popovertargetaction="toggle">
+      ケーキを見る
+    </button>
+    <div popover="auto" id="menu" class="popver">
+      <img src="img/cake01.jpeg" alt="ケーキ" width="48%" />
+      <img src="img/cake02.jpeg" alt="ケーキ" width="48%" />
+      <img src="img/cake03.jpeg" alt="ケーキ" width="48%" />
+      <img src="img/cake04.jpeg" alt="ケーキ" width="48%" />
+    </div>
+    <p>今すぐ<a href="https://google.com" target="_blank">Google</a>で検索！</p>
+    <ol>
+      <li>トマト(3個)</li>
+      <li>ピーマン(1個)</li>
+      <li>コンソメ(2ブロック)</li>
+    </ol>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>フォーム</title>
+</head>
+<body>
+    <form action="receive.java" method="post" novalidate>
+        予約者情報<br>
+        お名前：<input type="text" name="name" placeholder="苗字 名前"><br>
+        パスワード：<input type="password" name="password"><br>
+        電話番号：<input type="tel" name="tel"><br><br>
+        ご予約内容：<br>
+        予約日：<input type="date" name="date"><br>
+        予約人数：
+        <select name="reservation">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select><br><br>
+        コース：
+        <input type="radio" name="cource" value="松コース">松コース
+        <input type="radio" name="cource" value="竹コース">竹コース
+        <input type="radio" name="cource" value="梅コース">梅コース
+        <br><br>
+        その他ご要望<br>
+        <textarea name="request" cols="30" rows="10"></textarea><br><br>
+        <p><input type="submit" value="予約"></p>
+    </form>
+</body>
+</html>
