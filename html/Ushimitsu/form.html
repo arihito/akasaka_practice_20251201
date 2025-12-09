@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>予約ページ</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+        <header>
+          <h1>予約ページ</h1>
+        </header>
+        <main>
+          <form action="" method="post" novalidate>
+            <section>
+              <h2 class="form-title">予約者情報</h2>
+              <p>お名前：<input type="text" name="name" /></p>
+              <p>住所：<input type="text" name="address" /></p>
+              <p>電話番号：<input type="tel" name="tel" /></p>
+            </section>
+            <section>
+              <h2 class="form-title">ご予約内容</h2>
+              <p>
+                予約人数：<select name="num">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </p>
+              <p>
+                コース：
+                <label
+                  ><input
+                    type="radio"
+                    name="course"
+                    value="特選コース"
+                  />特選コース</label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="course"
+                    value="季節の逸品コース"
+                  />季節の逸品コース</label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="course"
+                    value="贅沢ランチコース"
+                  />贅沢ランチコース</label
+                >
+              </p>
+              <p>予約日：<input type="date" name="reserve" /></p>
+              <div class="form-detail">
+                  <p>※ 予約は2か月先まで可能です</p>
+                  <p>※ 食材は季節や仕入れ状況によって異なります。お電話でお問い合わせください。</p>
+              </div>
+            </section>
+            <section>
+              <h2 class="form-title">その他のご要望</h2>
+              <p>
+                <textarea
+                  name="inquiry"
+                  cols="30"
+                  rows="6"
+                  placeholder="誕生日で利用するのでケーキの準備をお願いします。"
+                ></textarea>
+              </p>
+            </section>
+            <p><input type="submit" value="予約" /></p>
+          </form>          
+        </main>
+        <footer>
+            <nav>
+                <ul>
+                    <li><a href="index.html">トップページ</a>に移動する</li>
+                    <li>コースの詳細は<a href="lists.html">こちら</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&display=swap');
+
+:root {
+    --bg01: #eee;
+    --bg02: #ccc;
+    --bg03: #aaa;
+    --bg04: #999;
+    --bg05: #666;
+    --bg06: #333;
+}
+
+body {
+    font-family: "Zen Old Mincho";
+}
+
+.container {
+    max-width: 36vw;
+    margin: auto;
+    background-color: var(--bg01);
+    border: 1px solid var(--bg02);
+}
+
+.lists-title {
+    padding: 10px;
+    background-color: var(--bg02);
+}
+
+.lists-table {
+    border-collapse: collapse;
+    margin: 0 0 3vw 1vw;
+}
+
+.lists-table th,
+.lists-table td {
+    border: 1px solid var(--bg04);
+    padding: 1vw;
+}
+
+.lists-title + ul ul li {
+    list-style-type: none;
+    margin: .5vw 0;
+}
+
+.form-title {
+    font-size: 1.2rem;
+    color: var(--bg06);
+    margin-top: 3vw;
+}
+
+.form-detail {
+    font-size: .8rem;
+    color: var(--bg05);
+}
