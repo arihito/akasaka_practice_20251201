@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      document.documentElement.dataset.embed = window.location.search.includes(
+        "type=embed"
+      )
+        ? "yep"
+        : "nope";
+    </script>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- https://codepen.io/coliss/pen/ByBKrre -->
+  </head>
+  <body>
+    <main>
+      <div id="demo">
+        <div class="accordion-wrapper">
+          <details name="accordion" id="boating" open>
+            <summary>
+              <span><img src="images/japan.png" alt="flag" /></span>
+            </summary>
+            <div class="details-content-wrapper">
+              <h3>日本語</h3>
+              <button>選択</button>
+            </div>
+          </details>
+          <details name="accordion" id="anchoring">
+            <summary>
+              <span><img src="images/usa.png" alt="flag" /></span>
+            </summary>
+            <div class="details-content-wrapper">
+              <h3>English</h3>
+            </div>
+          </details>
+          <details name="accordion" id="fishing">
+            <summary>
+              <span><img src="images/spain.png" alt="flag" /></span>
+            </summary>
+            <div class="details-content-wrapper">
+              <h3>Español</h3>
+            </div>
+          </details>
+          <details name="accordion" id="lighthouses">
+            <summary>
+              <span><img src="images/china.png" alt="flag" /></span>
+            </summary>
+            <div class="details-content-wrapper">
+              <h3>中文</h3>
+            </div>
+          </details>
+          <details name="accordion" id="reefs">
+            <summary>
+              <span><img src="images/korea.png" alt="flag" /></span>
+            </summary>
+            <div class="details-content-wrapper">
+              <h3>한국어</h3>
+            </div>
+          </details>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

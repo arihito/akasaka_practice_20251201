@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bento</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <fieldset id="radiento" class="bento">
+      <div>
+        <input type="radio" id="Frizzled" name="drone" value="Frizzled" />
+        <label for="Frizzled">カリカリ：Frizzled</label>
+      </div>
+
+      <div>
+        <input type="radio" id="Well-done" name="drone" value="Well-done" checked />
+        <label for="Well-done">しっかり：Well-done</label>
+      </div>
+
+      <div>
+        <input type="radio" id="Medium" name="drone" value="Medium" />
+        <label for="Medium">ノーマル：Medium</label>
+      </div>
+
+      <div>
+        <input type="radio" id="Medium-rare" name="drone" value="Medium-rare" />
+        <label for="Medium-rare">生温か：Medium-rare</label>
+      </div>
+
+      <div>
+        <input type="radio" id="Rare" name="drone" value="Rare" />
+        <label for="Rare">生焼け：Rare ※豚は不可</label>
+      </div>
+    </fieldset>
+    <script>
+      document.querySelectorAll("#radiento input").forEach((radio) => {
+        radio.onclick = (e) => {
+          if (!document.startViewTransition) return;
+
+          e.preventDefault();
+
+          document.startViewTransition(() => {
+            e.target.checked = true;
+          });
+        };
+      });
+    </script>
+  </body>
+</html>
