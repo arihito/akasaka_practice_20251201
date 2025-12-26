@@ -1,0 +1,1 @@
+print((lambda reading_list : sorted(reading_list))(input('適当な英字を入力してください -> ')))

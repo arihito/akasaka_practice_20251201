@@ -1,0 +1,1 @@
+print((lambda shopping_list, item : [x for x in shopping_list if x != item])(input('買い物リストの入力 -> ').split(' '), input('削除する商品 -> ')))

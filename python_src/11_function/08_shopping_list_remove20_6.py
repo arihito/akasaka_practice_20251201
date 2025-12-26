@@ -1,0 +1,1 @@
+print((lambda shopping_list, item: [b for b in shopping_list if b != item])(input('カンマ区切りで買い物リストを入力してください -> ').split(','), input('削除する商品を入力してください -> ')))

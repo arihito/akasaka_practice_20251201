@@ -1,0 +1,1 @@
+print((lambda travel_list, new_destination : travel_list + [new_destination])(input('旅行リストを入力してください -> ').split(' '), input('新しい旅行先を入力してください -> ')))

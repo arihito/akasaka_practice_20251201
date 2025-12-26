@@ -19,3 +19,7 @@ for o in range(-10, 0, 1):
 print()
 for p in range(20, 1, -1):
     print(f'{p:02}', end=' | ')
+
+
+print(list(range(-1)))
+print('Python'[:-1:-1])

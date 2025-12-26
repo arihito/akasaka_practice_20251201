@@ -1,0 +1,1 @@
+print((lambda reading_list : sorted(reading_list))(input('カンマ区切りで読書リストを入力してください -> ').split(',')))

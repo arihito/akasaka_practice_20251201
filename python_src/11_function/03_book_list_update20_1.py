@@ -1,0 +1,1 @@
+print((lambda book_list, new_book : book_list + [new_book])(input("半角スペース区切りで本のタイトルを入力してください：").split(' '), input('新しく追加する本のタイトル -> ')))

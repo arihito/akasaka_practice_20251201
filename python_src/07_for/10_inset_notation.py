@@ -1,0 +1,8 @@
+print([n for n in range(1, 4)])
+print('{:-^30}'.format('区切り'))
+print({i * 3 for i in range(1, 4)})
+print('{:-^30}'.format('区切り'))
+print([str(f'{m:02}') + '月' for m in range(1, 13)])
+print({id: name for id, name in {0:'p', 1:'a', 2:'e', 3:'r'}.items() if id > 2})
+print({len(s) for s in ('apple', 'banana', 'lemon')})
+print(x * x for x in range(10))

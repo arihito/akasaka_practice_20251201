@@ -1,0 +1,1 @@
+print((lambda book_list, new_book : book_list + [new_book])(input('カンマ区切りで本リストを入力してください -> ').split(','), input('新しい本のタイトルを入力してください -> ')))
