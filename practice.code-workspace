@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"sqltools.connections": [
+			{
+				"previewLimit": 50,
+				"driver": "SQLite",
+				"name": "sampledb",
+				"database": "${workspaceFolder:practice}/db/sampledb.db"
+			}
+		]
+	}
+}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>move add</title>
+        <style>
+            /* 上の候補 */
+            .block-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 12px;
+                margin-bottom: 32px;
+            }
+
+            .block-grid li {
+                height: 100px;
+                border: 2px solid #333;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+
+            /* 下のペア全体 */
+            .pair-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 16px;
+            }
+
+            /* wrapper：縦方向を保証 */
+            .pair-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            /* pending */
+            .pending-box {
+                height: 80px;
+                border: 2px dashed #999;
+                color: #999;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+
+            /* pair 本体 */
+            .pair {
+                display: flex;
+                gap: 8px;
+            }
+
+            .item {
+                flex: 1;
+                height: 100px;
+                border: 2px solid #555;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+
+            /* ＋ */
+            .plus-btn {
+                width: 40px;
+                font-size: 20px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <ul id="source-list" class="block-grid">
+            <li data-name="リンゴ">リンゴ</li>
+            <li data-name="バナナ">バナナ</li>
+            <li data-name="ブドウ">ブドウ</li>
+            <li data-name="みかん">みかん</li>
+            <li data-name="梨">梨</li>
+            <li data-name="いちご">いちご</li>
+            <li data-name="キウイ">キウイ</li>
+            <li data-name="スイカ">スイカ</li>
+            <li data-name="メロン">メロン</li>
+        </ul>
+
+        <div id="selected-list" class="pair-grid"></div>
+
+        <script>
+            const source = document.getElementById("source-list");
+            const selected = document.getElementById("selected-list");
+
+            const MAX_PAIR = 3;
+            let pending = null;
+
+            /* 上から下へ */
+            source.addEventListener("click", (e) => {
+                if (e.target.tagName !== "LI") return;
+                if (pending) {
+                    addSecondItem(pending.wrapper, e.target);
+                    clearPending();
+                    return;
+                }
+
+                if (selected.children.length >= MAX_PAIR) return;
+
+                const wrapper = createPairWrapper(e.target);
+                selected.appendChild(wrapper);
+            });
+
+            /* 下の操作 */
+            selected.addEventListener("click", (e) => {
+                /* ＋ */
+                if (e.target.classList.contains("plus-btn")) {
+                    if (pending) return;
+                    showPending(e.target.closest(".pair-wrapper"));
+                    return;
+                }
+
+                /* pending キャンセル */
+                if (e.target.classList.contains("pending-box")) {
+                    clearPending();
+                    return;
+                }
+
+                /* item クリック */
+                if (e.target.classList.contains("item")) {
+                    const wrapper = e.target.closest(".pair-wrapper");
+                    const items = wrapper.querySelectorAll(".item");
+
+                    // 1個目クリック → 上に戻す
+                    if (items[0] === e.target) {
+                        returnItemToSource(e.target);
+                        wrapper.remove();
+                        clearPending();
+                    }
+
+                    // 2個目クリック → キャンセル
+                    if (items[1] === e.target) {
+                        returnItemToSource(e.target);
+                        wrapper.querySelector(".plus-btn")?.remove();
+                        wrapper
+                            .querySelector(".pair")
+                            .appendChild(createPlus());
+                    }
+                }
+            });
+
+            /* ---------- helpers ---------- */
+
+            function createPairWrapper(li) {
+                const wrapper = document.createElement("div");
+                wrapper.className = "pair-wrapper";
+
+                const pair = document.createElement("div");
+                pair.className = "pair";
+
+                pair.appendChild(createItem(li));
+                pair.appendChild(createPlus());
+
+                wrapper.appendChild(pair);
+                return wrapper;
+            }
+
+            function createItem(li) {
+                const div = document.createElement("div");
+                div.className = "item";
+                div.textContent = li.dataset.name;
+                li.remove();
+                return div;
+            }
+
+            function createPlus() {
+                const btn = document.createElement("button");
+                btn.className = "plus-btn";
+                btn.textContent = "+";
+                return btn;
+            }
+
+            function showPending(wrapper) {
+                const box = document.createElement("div");
+                box.className = "pending-box";
+                box.textContent = "選択してください（クリックでキャンセル）";
+                wrapper.prepend(box);
+                pending = { wrapper, box };
+            }
+
+            function clearPending() {
+                if (!pending) return;
+                pending.box.remove();
+                pending = null;
+            }
+
+            function addSecondItem(wrapper, li) {
+                const pair = wrapper.querySelector(".pair");
+                pair.appendChild(createItem(li));
+                pair.querySelector(".plus-btn")?.remove();
+            }
+
+            function returnItemToSource(item) {
+                const li = document.createElement("li");
+                li.dataset.name = item.textContent;
+                li.textContent = item.textContent;
+                source.appendChild(li);
+            }
+        </script>
+    </body>
+</html>

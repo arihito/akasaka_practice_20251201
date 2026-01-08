@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cascade select</title>
+        <style>
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            li {
+                padding: 8px 12px;
+                cursor: pointer;
+            }
+
+            li.selected {
+                background-color: #007bff;
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <ul id="category-list">
+            <li data-category="fruit">果物</li>
+            <li data-category="vegetable">野菜</li>
+        </ul>
+
+        <ul id="item-list">
+            <!-- ここに li が追加される -->
+        </ul>
+
+        <script>
+            const itemMap = {
+                fruit: ["りんご", "バナナ", "みかん"],
+                vegetable: ["にんじん", "じゃがいも", "たまねぎ"],
+            };
+
+            const categoryList = document.getElementById("category-list");
+            const itemList = document.getElementById("item-list");
+
+            categoryList.addEventListener("click", (e) => {
+                // li 以外をクリックした場合は無視
+                if (e.target.tagName !== "LI") return;
+
+                const category = e.target.dataset.category;
+
+                // 子 ul を初期化
+                itemList.innerHTML = "";
+
+                if (!itemMap[category]) return;
+
+                itemMap[category].forEach((name, index) => {
+                    const li = document.createElement("li");
+                    li.textContent = name;
+
+                    // ★ 先頭要素を「選択状態」にする
+                    if (index === 0) {
+                        li.classList.add("selected");
+                    }
+
+                    itemList.appendChild(li);
+                });
+            });
+        </script>
+    </body>
+</html>
